@@ -30,8 +30,7 @@ struct WorkingStep2: View {
             
             VStack {
                 
-                Spacer()
-                
+                //Title
                 HStack(){
                     
                     ZStack {
@@ -48,11 +47,12 @@ struct WorkingStep2: View {
                     }
                     
                 }
-                .frame(width: 350, height: 150, alignment: .center)
-                .background(Color.black)
+                .frame(width: 350, height: 75, alignment: .center)
                 .cornerRadius(20)
-                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0))
+                .padding(.top, 20)
                 
+                //Balance
                  ZStack {
                      LinearGradient(
                          colors: [Color.black, Color.black, Color.red],
@@ -91,13 +91,14 @@ struct WorkingStep2: View {
                     }
                 }
                 .frame(width: 350, height: 150, alignment: .leading)
-                .background(Color.black)
+                .background(Color.gray.opacity(0.2))
                 .cornerRadius(20)
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
                 .padding(.top, 35)
                                 
                 Spacer()
                 
+                //Original Tile
                 HStack{
                        
                         Spacer()
@@ -108,10 +109,9 @@ struct WorkingStep2: View {
                     
                 }
                 .frame(width: 350, height: 150, alignment: .leading)
-                .background(Color.black)
+                .background(Color.gray.opacity(0.2))
                 .cornerRadius(20)
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
-                .padding(.top, 35)
                 
                 Spacer()
                 
@@ -142,10 +142,9 @@ struct WorkingStep2: View {
                     }
                 }
                 .frame(width: 350, height: 150, alignment: .leading)
-                .background(Color.black)
+                .background(Color.gray.opacity(0.2))
                 .cornerRadius(20)
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
-                .padding(.top, 35)
                 
                 Spacer()
             }

@@ -296,7 +296,7 @@ struct ActivityProgressView: View {
             
             Circle()
                 .trim(from: 0.0, to: progress)
-                .stroke(style: StrokeStyle(lineWidth: 40, lineCap: .round))
+                .stroke(style: StrokeStyle(lineWidth: 40, lineCap: .butt))
                 .foregroundStyle(color)
         }
     }

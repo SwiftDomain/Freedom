@@ -15,7 +15,7 @@ struct WorkingStep3: View {
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
-
+    
     @EnvironmentObject var freedom: FreedomModelDataStore
     @Binding var path: NavigationPath
     
@@ -23,77 +23,130 @@ struct WorkingStep3: View {
         
         ZStack{
             
-           // Background()
-
-            VStack {
+            Background()
             
-                    VStack {
-
-                        Image("eagle")
+            VStack {
+                
+                //Title
+                HStack(){
+                    ZStack {
+                        
+                        Image("saving")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 250, height: 250)
-                            .padding(.bottom, -75)
+                        
+                        VStack {
                             
+                            Text("Emergency")
+                                .foregroundStyle(.white)
+                                .font(.title2)
                             
-                        Text(" 3 MONTHS")
-                            .font(.title)
-                            .fontWeight(.heavy)
-                            .scaledToFill()
-                            .minimumScaleFactor(0.5)
-                            .lineLimit(1)
-                        Text("EMERGENCY FUND")
-                            .font(.title)
-                            .fontWeight(.heavy)
-                            .scaledToFill()
-                            .minimumScaleFactor(0.5)
-                            .lineLimit(1)
-                    }
-                Spacer()
-                Spacer()
-                Spacer()
-                 
-                ZStack{
-                                        
-                    ProgressView(value: freedom.efPercent, total: 100)
-                        .progressViewStyle(GradientProgressStyle(fill: gradient, height: 15))
-                        .padding(.horizontal)
-                    
-                    Slider(value: $freedom.efPercent, in: 0...100).disabled(false)
-                        .onAppear {
-                            
-                            let thumbImage = UIImage(named: freedom.efPercent == 0 ? "" : "sliderFull")
-                            
-                            UISlider.appearance().setThumbImage(thumbImage, for: .normal)
-                            
+                            Text("Fund")
+                                .foregroundStyle(.white)
+                                .font(.title2)
                         }
-                        .padding(.horizontal)
-               }
-                .padding(.bottom)
-                         
-                
-                VStack {
-                    VStack{
-                        Text("Current Balance")
-                        Text("$\(freedom.efBalance.formatted(.number.precision(.fractionLength(0))))")
-
                     }
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.bottom)
+                }
+                .frame(width: 350, height: 75, alignment: .center)
+                .cornerRadius(20)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0))
+                .padding(.top, 20)
+                
+                //Balance Tile
+                ZStack {
+                    LinearGradient(
+                        colors: [Color.black, Color.black, Color.red],
+                        startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .opacity(0.3)
                     
-                    Text("GOAL: $\(freedom.emergencyFund.formatted(.number.precision(.fractionLength(0))))")
-                    Text("\(freedom.efPercent.formatted(.number.precision(.fractionLength(2))))%")
-                        .font(.subheadline)
-                    
+                    HStack  {
+                        
+                       Spacer()
+                       
+                       VStack{
+                           Text("Balance")
+                               .foregroundStyle(.white)
+                               .font(.title3)
+                           
+                           Text("$\(freedom.efBalance.formatted(.number.precision(.fractionLength(0)))) ")
+                               .monospacedDigit()
+                               .foregroundStyle(.white)
+                               .font(.title3)
+                       }
+                       
+                       Spacer()
+                       
+                       ZStack{
+                           
+                           CircularProgressBar(progress: freedom.efPercent/100)
+                               .scaledToFit()
+                           
+                           Text("\(freedom.efPercent.formatted(.number.precision(.fractionLength(2))))%")
+                               .foregroundStyle(.white)
+                               .font(.subheadline.italic())
+                       }
+                       .frame(width: 50, height: 50, alignment: .leading)
+                       Spacer()
+                       
+                   }
+               }
+               .frame(width: 350, height: 150, alignment: .leading)
+               .background(Color.gray.opacity(0.2))
+               .cornerRadius(20)
+               .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
+               .padding(.top, 35)
+                
+                Spacer()
+                
+                // Goal
+                HStack{
+                       
+                        Spacer()
+                        Text("Goal: $\(freedom.emergencyFund.formatted(.number.precision(.fractionLength(0))))")
+                            .foregroundStyle(.white)
+                            .font(.title3)
+                        Spacer()
                     
                 }
-                .background(Color.white.opacity(0.1), alignment: .bottom)
-                .clipShape(Rectangle())
-                .scaledToFit()
-                .padding(.top, 25)
+                .frame(width: 350, height: 150, alignment: .leading)
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(20)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
+                
                 Spacer()
                 
+                HStack{
+                    ZStack{
+                        
+                        LinearGradient(
+                            colors: [Color.black, Color.black, Color.red],
+                            startPoint: .top, endPoint: .bottom)
+                        .opacity(0.1)
+                        
+                        
+                        ProgressView(value: freedom.efPercent, total: 100)
+                            .progressViewStyle(GradientProgressStyle(fill: gradient, height: 15))
+                            .padding(.horizontal)
+                        
+                        Slider(value: $freedom.efPercent, in: 0...100).disabled(false)
+                            .onAppear {
+                                  
+                                let thumbImage = UIImage(named: freedom.efPercent == 0 ? "" : "sliderFull")
+                                
+                                
+                                
+                                UISlider.appearance().setThumbImage(thumbImage, for: .normal)
+                                
+                            }
+                            .padding(.horizontal)
+                    }
+                }
+                .frame(width: 350, height: 150, alignment: .leading)
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(20)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
+                
+                Spacer()
                 
             }
         }
