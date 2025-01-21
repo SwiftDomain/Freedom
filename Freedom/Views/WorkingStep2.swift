@@ -10,11 +10,14 @@ import Foundation
 
 struct WorkingStep2: View {
     
-    @State private var gradient = LinearGradient(
-        gradient: Gradient(colors: [.blue.opacity(0.8), .green.opacity(0.5), .red.opacity(0.7)]),
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
+////    @State private var gradient = LinearGradient(
+//        gradient: Gradient(colors: [.blue.opacity(0.8), .green.opacity(0.5), .red.opacity(0.7)]),
+//        startPoint: .topLeading,
+//        endPoint: .bottomTrailing
+//    )
+    
+    @State private var gradient = LinearGradient(colors: [Color.black, Color.red], startPoint: .topLeading, endPoint: .bottomTrailing
+     )
     
     @EnvironmentObject var freedom: FreedomModelDataStore
     @Binding var path: NavigationPath
@@ -31,20 +34,21 @@ struct WorkingStep2: View {
                 
                 HStack(){
                     
-                    
                     ZStack {
+                
                         Image("dollar")
                             .resizable()
-                            .scaledToFill()
-                        
+                            .scaledToFit()
+                            
                         
                         Text("Student Loan")
                             .foregroundStyle(.white)
                             .font(.title2)
+                        
                     }
                     
                 }
-                .frame(width: 350, height: 150, alignment: .leading)
+                .frame(width: 350, height: 150, alignment: .center)
                 .background(Color.black)
                 .cornerRadius(20)
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
@@ -52,7 +56,7 @@ struct WorkingStep2: View {
                  ZStack {
                      LinearGradient(
                          colors: [Color.black, Color.black, Color.red],
-                         startPoint: .bottom, endPoint: .topTrailing)
+                         startPoint: .topLeading, endPoint: .bottomTrailing)
                      .opacity(0.3)
                      
                      HStack  {
@@ -95,12 +99,12 @@ struct WorkingStep2: View {
                 Spacer()
                 
                 HStack{
-                    
-                    Spacer()
-                    Text("ORIGINAL: $\(freedom.debt.formatted(.number.precision(.fractionLength(0))))")
-                        .foregroundStyle(.white)
-                        .font(.title3)
-                    Spacer()
+                       
+                        Spacer()
+                        Text("ORIGINAL: $\(freedom.debt.formatted(.number.precision(.fractionLength(0))))")
+                            .foregroundStyle(.white)
+                            .font(.title3)
+                        Spacer()
                     
                 }
                 .frame(width: 350, height: 150, alignment: .leading)
@@ -113,6 +117,12 @@ struct WorkingStep2: View {
                 
                 HStack{
                     ZStack{
+                        
+                        LinearGradient(
+                            colors: [Color.black, Color.black, Color.red],
+                            startPoint: .top, endPoint: .bottom)
+                        .opacity(0.1)
+                        
                         
                         ProgressView(value: freedom.debtPercent, total: 100)
                             .progressViewStyle(GradientProgressStyle(fill: gradient, height: 15))

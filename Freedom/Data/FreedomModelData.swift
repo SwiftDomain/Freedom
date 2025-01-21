@@ -229,11 +229,15 @@ class FreedomAPI{
         var body: some View {
             
            LinearGradient(
-            colors: [Color.black, Color.black, Color.black, Color.red],
-            startPoint: .center, endPoint: .top)
+            colors: [Color.black, Color.red],
+            startPoint: .center, endPoint: .topTrailing)
+           .opacity(0.2)
+                .background(Color.black)
                 .ignoresSafeArea()
+
             
         }
+        
     }
 
     
@@ -271,7 +275,7 @@ struct CircularProgressBar: View {
         VStack(spacing: 30) {
             // Update in CircularProgressBar
             ZStack {
-                ActivityProgressView(color: Color(red: 250 / 255, green: 17 / 255, blue: 79 / 255), progress: progress)
+                ActivityProgressView(color: Color(red: 255 / 255, green: 0 / 255, blue: 0 / 255), progress: progress)
                     .frame(width: 100, height: 100)
 
             }
@@ -292,7 +296,7 @@ struct ActivityProgressView: View {
             
             Circle()
                 .trim(from: 0.0, to: progress)
-                .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round))
+                .stroke(style: StrokeStyle(lineWidth: 40, lineCap: .round))
                 .foregroundStyle(color)
         }
     }

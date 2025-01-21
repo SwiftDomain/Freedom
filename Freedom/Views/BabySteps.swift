@@ -32,6 +32,9 @@ struct BabySteps: View{
         
         ZStack{
             
+            Background()
+
+            
             NavigationStack(path: $path) {
                 
                 ScrollView(showsIndicators: false) {
