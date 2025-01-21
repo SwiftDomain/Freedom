@@ -26,65 +26,118 @@ struct WorkingStep2: View {
             Background()
             
             VStack {
-                VStack {
+                
+                Spacer()
+                
+                HStack(){
                     
-                    Image("eagle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 250, height: 250)
-                        .padding(.bottom, -75)
                     
-                    Text("STUDENT LOAN")
-                        .font(.title)
-                        .fontWeight(.heavy)
+                    ZStack {
+                        Image("dollar")
+                            .resizable()
+                            .scaledToFill()
+                        
+                        
+                        Text("Student Loan")
+                            .foregroundStyle(.white)
+                            .font(.title2)
+                    }
+                    
                 }
+                .frame(width: 350, height: 150, alignment: .leading)
+                .background(Color.black)
+                .cornerRadius(20)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
                 
-                Spacer()
-                Spacer()
-                Spacer()
-                
-                ZStack{
-                    
-                    ProgressView(value: freedom.debtPercent, total: 100)
-                        .progressViewStyle(GradientProgressStyle(fill: gradient, height: 15))
-                        .padding(.horizontal)
-                    
-                    Slider(value: $freedom.debtPercent, in: 0...100).disabled(false)
-                        .onAppear {
+                 ZStack {
+                     LinearGradient(
+                         colors: [Color.black, Color.black, Color.red],
+                         startPoint: .bottom, endPoint: .topTrailing)
+                     .opacity(0.3)
+                     
+                     HStack  {
+                         
+                        Spacer()
+                        
+                        VStack{
+                            Text("Balance")
+                                .foregroundStyle(.white)
+                                .font(.title3)
                             
-                            let thumbImage = UIImage(named: freedom.debtPercent == 0 ? "" : "slider")
-                            
-                            
-                            
-                            UISlider.appearance().setThumbImage(thumbImage, for: .normal)
-                            
+                            Text("$\(freedom.debtBalance.formatted(.number.precision(.fractionLength(0)))) ")
+                                .monospacedDigit()
+                                .foregroundStyle(.white)
+                                .font(.title3)
                         }
-                        .padding(.horizontal)
-                }
-                .padding(.bottom)
-                
-                VStack {
-                    VStack{
-                        Text("Current Balance")
-                        Text("$\(freedom.debtBalance.formatted(.number.precision(.fractionLength(0)))) ")
+                        
+                        Spacer()
+                        
+                        ZStack{
+                            
+                            CircularProgressBar(progress: freedom.debtPercent/100)
+                                .scaledToFit()
+                            
+                            Text("\(freedom.debtPercent.formatted(.number.precision(.fractionLength(2))))%")
+                                .foregroundStyle(.white)
+                                .font(.subheadline.italic())
+                        }
+                        .frame(width: 50, height: 50, alignment: .leading)
+                        Spacer()
                         
                     }
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.bottom)
-                    
-                    Text("ORIGINAL: $\(freedom.debt.formatted(.number.precision(.fractionLength(0))))")
-                    Text("\(freedom.debtPercent.formatted(.number.precision(.fractionLength(2))))%")
-                        .font(.subheadline)
-                    
                 }
-                .background(Color.white.opacity(0.1), alignment: .bottom)
-                .clipShape(Rectangle())
-                .scaledToFit()
-                .padding(.top, 25)
+                .frame(width: 350, height: 150, alignment: .leading)
+                .background(Color.black)
+                .cornerRadius(20)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
+                .padding(.top, 35)
+                                
                 Spacer()
                 
+                HStack{
+                    
+                    Spacer()
+                    Text("ORIGINAL: $\(freedom.debt.formatted(.number.precision(.fractionLength(0))))")
+                        .foregroundStyle(.white)
+                        .font(.title3)
+                    Spacer()
+                    
+                }
+                .frame(width: 350, height: 150, alignment: .leading)
+                .background(Color.black)
+                .cornerRadius(20)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
+                .padding(.top, 35)
                 
+                Spacer()
+                
+                HStack{
+                    ZStack{
+                        
+                        ProgressView(value: freedom.debtPercent, total: 100)
+                            .progressViewStyle(GradientProgressStyle(fill: gradient, height: 15))
+                            .padding(.horizontal)
+                        
+                        Slider(value: $freedom.debtPercent, in: 0...100).disabled(false)
+                            .onAppear {
+                                
+                                let thumbImage = UIImage(named: freedom.debtPercent == 0 ? "" : "slider")
+                                
+                                
+                                
+                                UISlider.appearance().setThumbImage(thumbImage, for: .normal)
+                                
+                            }
+                            .padding(.horizontal)
+                    }
+                }
+                .frame(width: 350, height: 150, alignment: .leading)
+                .background(Color.black)
+                .cornerRadius(20)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
+                .padding(.top, 35)
+                
+                Spacer()
             }
         }
     }

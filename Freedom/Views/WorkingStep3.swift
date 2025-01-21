@@ -23,7 +23,7 @@ struct WorkingStep3: View {
         
         ZStack{
             
-            Background()
+           // Background()
 
             VStack {
             
