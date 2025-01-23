@@ -4,7 +4,7 @@
 //
 //  Created by BeastMode on 12/4/24.
 //
-import SwiftUI 
+import SwiftUI
 
 struct BabySteps: View{
     
@@ -33,7 +33,6 @@ struct BabySteps: View{
         ZStack{
             
             Background()
-
             
             NavigationStack(path: $path) {
                 
@@ -59,22 +58,25 @@ struct BabySteps: View{
                                 }
                             }
                         }
-
+                        
                     }
                 }
                 .refreshable {
-       freedom.refreshData()
+                    freedom.refreshData()
                 }
                 .navigationTitle("Baby Steps")
             }
             .sheet(isPresented: $showStep)
             {
-                if  completedStep{
-                    CompletedStep(path: $path)
-                }
-                else {
-                    WorkingStep(path: $path)
-                }
+                //                if  completedStep{
+                //                    CompletedStep(path: $path)
+                //                }
+                //                else {
+                //                    WorkingStep(path: $path)
+                //                }
+                
+                WorkingStep(path: $path)
+                
             }
         }
         .environmentObject(freedom)

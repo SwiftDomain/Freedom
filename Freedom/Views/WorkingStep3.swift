@@ -91,7 +91,7 @@ struct WorkingStep3: View {
                    }
                }
                .frame(width: 350, height: 150, alignment: .leading)
-               .background(Color.gray.opacity(0.2))
+               .background(Color.gray.opacity(0.09))
                .cornerRadius(20)
                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
                .padding(.top, 35)
@@ -109,7 +109,7 @@ struct WorkingStep3: View {
                     
                 }
                 .frame(width: 350, height: 150, alignment: .leading)
-                .background(Color.gray.opacity(0.2))
+                .background(Color.gray.opacity(0.09))
                 .cornerRadius(20)
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
                 
@@ -142,7 +142,7 @@ struct WorkingStep3: View {
                     }
                 }
                 .frame(width: 350, height: 150, alignment: .leading)
-                .background(Color.gray.opacity(0.2))
+                .background(Color.gray.opacity(0.09))
                 .cornerRadius(20)
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
                 

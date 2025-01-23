@@ -94,7 +94,7 @@ class FreedomModelDataStore: ObservableObject{
 
 class FreedomAPI{
     
-    let freedomUrl = URL(string: "https://api.jsonsilo.com/public/daeef78e-4b86-4271-b6bb-0b1dea73fda6")!
+    let freedomUrl = URL(string: "https://swiftdomain.github.io/FreedomApp/freedom.json")!
     
     func getFreedomModelData(completion:@escaping (FreedomModelData) -> ()) {
         
@@ -301,3 +301,10 @@ struct ActivityProgressView: View {
         }
     }
 }
+
+struct Networth: Identifiable {
+    let id = UUID()
+    let type: String
+    let value: Double
+}
+

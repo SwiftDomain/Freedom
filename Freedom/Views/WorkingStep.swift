@@ -14,35 +14,64 @@ struct WorkingStep: View {
     @Binding var path: NavigationPath
     
     var body: some View {
-            
-        
+
         switch freedom.workingStep{
         case 1:
-            Background()
-            Text("SAVED $1,000")
-                .font(.title)
-                .fontWeight(.heavy)
-                .foregroundStyle(.primary)
+            WorkingStep1(path: $path)
         
         case 2:
              WorkingStep2(path: $path)
         case 3:
              WorkingStep3(path: $path)
         case 4:
-            ZStack{
-                Background()
-                Text("Not Investing 15% on Retirement YET")
-                    .font(.title)
-                    .fontWeight(.heavy)
-                    .foregroundStyle(.primary)
-            }
+            WorkingStep4(path: $path)
         case 5:
             ZStack{
                 Background()
-                Text("FIU TUITION WAIVER FTW")
-                    .font(.title)
-                    .fontWeight(.heavy)
-                    .foregroundStyle(.primary)
+                
+                VStack{
+                    //Title
+                    HStack(){
+                        ZStack {
+                            
+                            Image("collegeFund")
+                                .resizable()
+                                .scaledToFit()
+                            
+                            VStack{
+                                
+                                Text("College")
+                                    .foregroundStyle(.white)
+                                    .font(.title2)
+                                
+                                Text("Funds")
+                                    .foregroundStyle(.white)
+                                    .font(.title2)
+                            }
+                            
+                        }
+                    }
+                    .frame(width: 350, height: 75, alignment: .center)
+                    .cornerRadius(20)
+                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0))
+                    .padding(.top, 20)
+                    
+                    Spacer()
+                    
+                    HStack{
+                        Spacer()
+                        Text("FIU Tuition Waiver")
+                            .foregroundStyle(.white)
+                            .font(.title3)
+                        Spacer()
+                    }
+                    .frame(width: 350, height: 150, alignment: .leading)
+                    .background(Color.gray.opacity(0.09))
+                    .cornerRadius(20)
+                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
+                    
+                    Spacer()
+                }
             }
         case 6:
              WorkingStep6(path: $path)
