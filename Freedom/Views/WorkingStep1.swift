@@ -1,4 +1,12 @@
 //
+//  WorkingStep6 2.swift
+//  Freedom
+//
+//  Created by BeastMode on 1/21/25.
+//
+
+
+//
 //  ContentView.swift
 //  Freedom
 //
@@ -8,7 +16,7 @@
 import SwiftUI
 import Foundation
 
-struct WorkingStep6: View {
+struct WorkingStep1: View {
     
     @State private var gradient = LinearGradient(
         gradient: Gradient(colors: [.blue.opacity(0.8), .green.opacity(0.5), .red.opacity(0.7)]),
@@ -155,9 +163,9 @@ struct WorkingStep6: View {
     }
 }
 
-struct WorkingStep6_Previews: PreviewProvider {
+struct WorkingStep62_Previews: PreviewProvider {
     static var previews: some View {
-        WorkingStep6(path: .constant(NavigationPath()))
+        WorkingStep1(path: .constant(NavigationPath()))
             .environmentObject(FreedomModelDataStore())
     }
 }

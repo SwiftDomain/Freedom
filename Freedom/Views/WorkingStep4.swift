@@ -1,4 +1,12 @@
 //
+//  WorkingStep1.swift
+//  Freedom
+//
+//  Created by BeastMode on 1/21/25.
+//
+
+
+//
 //  ContentView.swift
 //  Freedom
 //
@@ -8,7 +16,7 @@
 import SwiftUI
 import Foundation
 
-struct WorkingStep6: View {
+struct WorkingStep1: View {
     
     @State private var gradient = LinearGradient(
         gradient: Gradient(colors: [.blue.opacity(0.8), .green.opacity(0.5), .red.opacity(0.7)]),
@@ -31,13 +39,13 @@ struct WorkingStep6: View {
                 HStack(){
                     ZStack {
                         
-                        Image("house")
+                        Image("piggy")
                             .resizable()
                             .scaledToFit()
                         
                         VStack {
                             
-                            Text("Mortage")
+                            Text("$1,000 Fund")
                                 .foregroundStyle(.white)
                                 .font(.title2)
                         }
@@ -64,7 +72,7 @@ struct WorkingStep6: View {
                                 .foregroundStyle(.white)
                                 .font(.title3)
                             
-                            Text("$\(freedom.mortgageBalance.formatted(.number.precision(.fractionLength(0)))) ")
+                            Text("$1,000")
                                 .monospacedDigit()
                                 .foregroundStyle(.white)
                                 .font(.title3)
@@ -74,10 +82,10 @@ struct WorkingStep6: View {
                         
                         ZStack{
                             
-                            CircularProgressBar(progress: freedom.mortgagePercent/100)
+                            CircularProgressBar(progress: 100/100)
                                 .scaledToFit()
                             
-                            Text("\(freedom.mortgagePercent.formatted(.number.precision(.fractionLength(2))))%")
+                            Text("100%")
                                 .foregroundStyle(.white)
                                 .font(.subheadline.italic())
                         }
@@ -99,10 +107,10 @@ struct WorkingStep6: View {
                        
                         Spacer()
                     VStack{
-                        Text("Original Mortgage")
+                        Text("Goal")
                             .foregroundStyle(.white)
                             .font(.title3)
-                        Text("$\(freedom.mortgage.formatted(.number.precision(.fractionLength(0))))")
+                        Text("$1,000")
                             .foregroundStyle(.white)
                             .font(.title3)
                     }
@@ -126,7 +134,7 @@ struct WorkingStep6: View {
                         .opacity(0.1)
                         
                         
-                        ProgressView(value: freedom.mortgagePercent, total: 100)
+                        ProgressView(value: 100, total: 100)
                             .progressViewStyle(GradientProgressStyle(fill: gradient, height: 15))
                             .padding(.horizontal)
                         
@@ -155,9 +163,9 @@ struct WorkingStep6: View {
     }
 }
 
-struct WorkingStep6_Previews: PreviewProvider {
+struct WorkingStep1_Previews: PreviewProvider {
     static var previews: some View {
-        WorkingStep6(path: .constant(NavigationPath()))
+        WorkingStep1(path: .constant(NavigationPath()))
             .environmentObject(FreedomModelDataStore())
     }
 }
