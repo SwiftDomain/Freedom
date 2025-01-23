@@ -37,21 +37,16 @@ struct WorkingStep1: View {
                 
                 //Title
                 HStack(){
-                    ZStack {
-                        
-                        Image("piggy")
-                            .resizable()
-                            .scaledToFit()
-                        
-                        VStack {
-                            
+                                    Image("piggy")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .clipShape(Circle())
+                                
                             Text("$1,000 Fund")
                                 .foregroundStyle(.white)
                                 .font(.title2)
-                        }
-                    }
                 }
-                .frame(width: 350, height: 75, alignment: .center)
+                .frame(width: 450, height: 50, alignment: .center)
                 .cornerRadius(20)
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0))
                 .padding(.top, 20)

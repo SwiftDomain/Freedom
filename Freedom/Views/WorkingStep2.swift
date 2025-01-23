@@ -38,6 +38,7 @@ struct WorkingStep2: View {
                         Image("dollar")
                             .resizable()
                             .scaledToFit()
+                        
                             
                         
                         Text("Student Loan")

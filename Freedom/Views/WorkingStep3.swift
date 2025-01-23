@@ -29,28 +29,22 @@ struct WorkingStep3: View {
                 
                 //Title
                 HStack(){
-                    ZStack {
-                        
+                   
                         Image("saving")
                             .resizable()
-                            .scaledToFit()
-                        
-                        VStack {
-                            
-                            Text("Emergency")
-                                .foregroundStyle(.white)
-                                .font(.title2)
-                            
-                            Text("Fund")
-                                .foregroundStyle(.white)
-                                .font(.title2)
-                        }
-                    }
+                            .scaledToFill()
+                            .frame(width: 45, height: 45)
+                            .clipShape(Circle())
+                    
+                    Text("Emergency Fund")
+                        .font(.title)
+                        .foregroundColor(.white)
+                    
                 }
                 .frame(width: 350, height: 75, alignment: .center)
                 .cornerRadius(20)
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0))
-                .padding(.top, 20)
+                .padding(.vertical, 30)
                 
                 //Balance Tile
                 ZStack {
@@ -94,7 +88,6 @@ struct WorkingStep3: View {
                .background(Color.gray.opacity(0.09))
                .cornerRadius(20)
                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
-               .padding(.top, 35)
                 
                 Spacer()
                 

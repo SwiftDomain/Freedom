@@ -28,20 +28,14 @@ struct WorkingStep6: View {
             VStack {
                 
                 //Title
-                HStack(){
-                    ZStack {
+                HStack{
                         
                         Image("house")
                             .resizable()
                             .scaledToFit()
-                        
-                        VStack {
-                            
-                            Text("Mortage")
-                                .foregroundStyle(.white)
-                                .font(.title2)
-                        }
-                    }
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                                            
                 }
                 .frame(width: 350, height: 75, alignment: .center)
                 .cornerRadius(20)
