@@ -74,9 +74,12 @@ struct WorkingStep4: View {
                                 
                                 VStack {
                                     Text("Balance")
-                                        .font(.title3)
-                                    Text("$540")
-                                        .font(.title3)
+                                    Text("$\(freedom.stocks.formatted(.number.precision(.fractionLength(0)))) ")
+                                }
+                                .font(.largeTitle)
+                                .background {
+                                    Color.black
+                                        .blur(radius: 41, opaque: false)
                                 }
                             }
                         }
@@ -105,14 +108,14 @@ struct WorkingStep4: View {
                                     .scaledToFill()
                                 
                                 VStack{
-                                    Text("Crypto")
-                                        .font(.title3)
-                                    
-                                    Text("$218.88")
-                                        .font(.title3)
+                                    Text("Cryptocurrency")
+                                    Text("$\(freedom.crypto.formatted(.number.precision(.fractionLength(0)))) ")
                                 }
-                                .foregroundStyle(.white)
-                            }
+                                .font(.largeTitle)
+                                .background {
+                                    Color.black
+                                        .blur(radius: 41, opaque: false)
+                                }                            }
                         }
                         .frame(width: 350, height: 150, alignment: .leading)
                         .background(Color.gray.opacity(0.09))
@@ -141,12 +144,16 @@ struct WorkingStep4: View {
                                 
                                 VStack{
                                     Text("Equity")
-                                        .font(.title3)
                                     
-                                    Text("$235,442")
+                                    Text("$\(freedom.equity.formatted(.number.precision(.fractionLength(0)))) ")
                                         .monospacedDigit()
-                                        .font(.title3)
                                 }
+                                .font(.largeTitle)
+                                .background {
+                                    Color.black
+                                        .blur(radius: 41, opaque: false)
+                                }
+                                
                             }
                         }
                         .frame(width: 350, height: 150)
@@ -175,15 +182,17 @@ struct WorkingStep4: View {
                                 
                                 VStack{
                                     Text("Balance")
-                                        .font(.title3)
-                                    
-                                    Text("$277,046")
-                                        .font(.title3)
+                                    Text("$\(freedom.retirement.formatted(.number.precision(.fractionLength(0)))) ")
                                 }
+                                .font(.largeTitle)
+                                .background {
+                                                    Color.white
+                                                        .blur(radius: 31, opaque: false)
+                                                }
                             }
                         }
                         .frame(width: 350, height: 150, alignment: .leading)
-                        .background(Color.gray.opacity(0.09))
+                       // .background(Color.gray.opacity(0.09))
                         .cornerRadius(20)
                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
                         

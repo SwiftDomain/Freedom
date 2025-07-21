@@ -68,12 +68,6 @@ struct BabySteps: View{
             }
             .sheet(isPresented: $showStep)
             {
-                //                if  completedStep{
-                //                    CompletedStep(path: $path)
-                //                }
-                //                else {
-                //                    WorkingStep(path: $path)
-                //                }
                 
                 WorkingStep(path: $path)
                 

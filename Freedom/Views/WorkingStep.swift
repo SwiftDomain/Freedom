@@ -16,6 +16,7 @@ struct WorkingStep: View {
     var body: some View {
 
         switch freedom.workingStep{
+            
         case 1:
             WorkingStep1(path: $path)
         

@@ -24,7 +24,11 @@ struct FreedomModelData: Codable, Identifiable{
     let efBalance: Double
     let mortgage: Double
     let mortgageBalance: Double
-    
+    let stocks: Double
+    let crypto: Double
+    let equity: Double
+    let retirement: Double
+
 }
 
 class FreedomModelDataStore: ObservableObject{
@@ -45,6 +49,11 @@ class FreedomModelDataStore: ObservableObject{
     
     @Published var completedMessage:String = ""
     @Published var workingStep:Int = 1
+    
+    @Published var stocks:Double = 0
+    @Published var crypto:Double = 0
+    @Published var equity:Double = 0
+    @Published var retirement:Double = 0
 
     
     init(){
@@ -65,6 +74,10 @@ class FreedomModelDataStore: ObservableObject{
             self.mortgageBalance = self.freedomModelData?.mortgageBalance ?? 0
             self.mortgagePercent = ((self.mortgageBalance)/self.mortgage) * 100
             
+            self.stocks = self.freedomModelData?.stocks ?? 0
+            self.crypto = self.freedomModelData?.crypto ?? 0
+            self.equity = self.freedomModelData?.equity ?? 0
+            self.retirement = self.freedomModelData?.retirement ?? 0
         }
     }
     
@@ -85,6 +98,11 @@ class FreedomModelDataStore: ObservableObject{
             self.mortgage = self.freedomModelData?.mortgage ?? 0
             self.mortgageBalance = self.freedomModelData?.mortgageBalance ?? 0
             self.mortgagePercent = ((self.mortgageBalance)/self.mortgage) * 100
+            
+            self.stocks = self.freedomModelData?.stocks ?? 0
+            self.crypto = self.freedomModelData?.crypto ?? 0
+            self.equity = self.freedomModelData?.equity ?? 0
+            self.retirement = self.freedomModelData?.retirement ?? 0
             
         }
         
