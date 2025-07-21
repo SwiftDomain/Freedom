@@ -79,7 +79,7 @@ struct WorkingStep4: View {
                                 .font(.largeTitle)
                                 .background {
                                     Color.black
-                                        .blur(radius: 41, opaque: false)
+                                        .blur(radius: 24, opaque: false)
                                 }
                             }
                         }
@@ -114,7 +114,7 @@ struct WorkingStep4: View {
                                 .font(.largeTitle)
                                 .background {
                                     Color.black
-                                        .blur(radius: 41, opaque: false)
+                                        .blur(radius: 24, opaque: false)
                                 }                            }
                         }
                         .frame(width: 350, height: 150, alignment: .leading)
@@ -151,7 +151,7 @@ struct WorkingStep4: View {
                                 .font(.largeTitle)
                                 .background {
                                     Color.black
-                                        .blur(radius: 41, opaque: false)
+                                        .blur(radius: 24, opaque: false)
                                 }
                                 
                             }
@@ -187,12 +187,11 @@ struct WorkingStep4: View {
                                 .font(.largeTitle)
                                 .background {
                                                     Color.white
-                                                        .blur(radius: 31, opaque: false)
+                                                        .blur(radius: 24, opaque: false)
                                                 }
                             }
                         }
                         .frame(width: 350, height: 150, alignment: .leading)
-                       // .background(Color.gray.opacity(0.09))
                         .cornerRadius(20)
                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 0.3))
                         
@@ -207,8 +206,6 @@ struct WorkingStep4: View {
                                     .scaledToFill()
                                 
                                     Chart(netWorth) { investment in
-                                        //   SectorMark(angle: .value(Text(verbatim: product.type), product.value), innerRadius: .ratio(0.6)//,angularInset: 8
-                                        //                                    )
                                         SectorMark(angle: .value("value", investment.value))
                                             .foregroundStyle(by: .value(Text(verbatim: investment.type), investment.type))
                                     }
