@@ -30,17 +30,17 @@ struct WorkingStep4: View {
     @EnvironmentObject var freedom: FreedomModelDataStore
     @Binding var path: NavigationPath
     
-    @State private var netWorth: [Networth] = [
-        .init(type: "Real Estate", value: 235_442),
-        .init(type: "Stocks", value: 540),
-        .init(type: "Crypto", value: 218),
-        .init(type: "Retirment", value: 277_046)
-        
-    ]
-    
     var body: some View {
         
         let imageName = colorScheme == .dark ?  "world31" : "world"
+        
+        @State var netWorth: [Networth] = [
+            .init(type: "Real Estate", value: freedom.equity),
+            .init(type: "Stocks", value: freedom.stocks),
+            .init(type: "Crypto", value: freedom.crypto),
+            .init(type: "Retirment", value: freedom.retirement)
+            
+        ]
 
         ZStack{
             
